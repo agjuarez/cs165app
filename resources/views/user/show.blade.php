@@ -56,6 +56,14 @@
                           <em>{{$user -> email}} </em>
                         </div>
                       </div>
+                      <div class="text-center">
+                        <a href = "{{route('user.edit',['user' => Auth::user()->id])}}" role="button" class="btn btn-success">Edit Profile </a>
+
+                        <a href="{{url('/product')}}" role ="button" class =" btn btn-default"> Back</a>
+
+                      </div>
+
+
                 </div>
             </div>
         </div>

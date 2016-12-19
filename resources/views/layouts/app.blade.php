@@ -48,6 +48,24 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Products <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                        <li>
+                        <a href = "{{url('/product')}}">View Products </a>
+                        @if (Auth::user()->role ==0)
+                          <a href="{{url('cart')}}"> View Cart</a>
+                          <a href="{{url('orders/history')}}"> View Order History</a>
+                        @elseif (Auth::user()->role ==1)
+                          <a href = "{{url('admin/product/create')}}">Add Product</a>
+
+                          <a href="{{url('admin/orders/')}}"> View Orders</a>
+                        @endif
+                        </ul>
+                        </li>
+                      </li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
@@ -63,15 +81,8 @@
                                     <a href = "{{route('user.show',['user' => Auth::user()->id])}}">View Profile </a>
                                     <a href = "{{route('user.edit',['user' => Auth::user()->id])}}">Edit Profile </a>
 
-                                      <a href = "{{url('/product')}}">View Products </a>
-                                      @if (Auth::user()->role ==0)
-                                        <a href="{{url('cart')}}"> View Cart</a>
-                                        <a href="{{url('orders/history')}}"> View Order History</a>
-                                      @elseif (Auth::user()->role ==1)
-                                        <a href = "{{url('admin/product/create')}}">Add Product</a>
 
-                                        <a href="{{url('admin/orders/')}}"> View Orders</a>
-                                      @endif
+
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

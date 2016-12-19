@@ -97,9 +97,11 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
                                     Edit
                                 </button>
+                                <a href = "{{route('user.show',['user' => Auth::user()->id])}}" role="button" class="btn btn-default">View Profile </a>
+
                             </div>
                         </div>
                     </form>

@@ -85,6 +85,8 @@
                                 <button type="submit" class="btn btn-primary">
                                     Add Product
                                 </button>
+                                <a href="{{url('/product')}}" role ="button" class =" btn btn-default"> Back</a>
+
                             </div>
                         </div>
                     </form>
