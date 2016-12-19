@@ -68,10 +68,10 @@
                       @if(Auth::user()->role == 1 && $order->status <> 2)
 
                       @if(isset($flag) && $flag) <p style = "color:red;"> <em>Cannot Deliver Item Because there are not enough stocks.</em></p>@endif
-                      @endif
+
 
                       <a href="{{route('orders.deliver',['id'=>$order->id])}}" role="button" class="btn btn-primary  @if(isset($flag) && $flag) disabled @endif ">Deliver Item</a>
-
+                      @endif
                       <a href="@if (Auth::user()->role == 0){{url('/orders/history') }} @else{{url('admin/orders') }} @endif" role ="button" class =" btn btn-default"> Back</a>
                     </div>
                 </div>
