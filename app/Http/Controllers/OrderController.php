@@ -151,11 +151,15 @@ class OrderController extends Controller
     public function showOrderHistory(Order $order){
       $items = $order ->orderdetail;
       $total = 0;
+      $flag = 0;
       foreach($items as $item) {
-
+        if ($item->quantity > $item->product->stock){
+          $flag = 1;
+        }
         $total+= $item->total;
       }
-      return view('orders.summary',['items'=>$items,'total'=>$total,'order'=>$order]);
+
+      return view('orders.summary',['items'=>$items,'total'=>$total,'order'=>$order,'flag'=>$flag]);
     }
     public function viewCustomerOrder(Order $order, User $user){
       $items = $order ->orderdetail;
